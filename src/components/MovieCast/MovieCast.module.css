@@ -1,0 +1,18 @@
+.photo{
+    width: 150px;
+}
+
+.castList{
+    display: flex;
+    gap: 20px;
+    width: 1200px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.castEl{
+    width: 200px;
+    border: 1px solid gray;
+    padding: 5px;
+    flex-wrap: wrap;
+}
