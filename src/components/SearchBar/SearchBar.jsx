@@ -2,8 +2,6 @@ import { Formik, Form, Field } from 'formik';
 import css from './SearchBar.module.css';
 import AddBtn from '../Button/Button';
 
-
-
 export default function SearchBar({onSearch}) {
 
   return (

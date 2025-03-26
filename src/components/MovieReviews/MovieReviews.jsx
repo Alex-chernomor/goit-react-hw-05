@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMovieReviews } from "../MovieList";
 import { useParams } from "react-router";
-import css from './MovieReviews.module.css';
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 export default function MovieReviews() {
