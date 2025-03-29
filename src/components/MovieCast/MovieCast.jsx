@@ -32,7 +32,7 @@ export default function MovieCast() {
               })}
               </ul>
               {error && <ErrorMessage/>}
-              {casts.length === 0 && <p>No reviews</p>}
+              {casts.length === 0 && <p>No information</p>}
     </div>
   )
 }
