@@ -2,19 +2,18 @@ import { Formik, Form, Field } from 'formik';
 import css from './SearchBar.module.css';
 import AddBtn from '../Button/Button';
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar({onSearch, value, onChange}) {
 
   return (
     <div>
            <Formik
              initialValues={{
-             topic:'',
-             }}
-            onSubmit={(values, actions)=>{
-            onSearch(values.topic.trim());
-            actions.resetForm();
-        }}
-        >
+               topic:value,
+              }}
+              onSubmit={() => {
+                onSearch();
+              }}
+              >
           <Form  className = {css.formik}>
             <label>Search movie</label>
               <Field
@@ -23,10 +22,13 @@ export default function SearchBar({onSearch}) {
               autoComplete="off"
               autoFocus
               name = 'topic'
+              value = {value}
+              onChange = {onChange}
               />
               <AddBtn context={'Search'} type={"submit"}/>
           </Form>
         </Formik>   
+
     </div>
   )
 }

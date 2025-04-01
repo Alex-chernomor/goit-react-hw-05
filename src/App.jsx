@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import Header from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css'
@@ -14,7 +14,7 @@ const MovieReviews = lazy(()=>import('./components/MovieReviews/MovieReviews'));
 function App() {
   return (
     <>
-      <Header />
+      <Navigation />
 
       <Suspense fallback={<p>Loading page...</p>}>
         <Routes>

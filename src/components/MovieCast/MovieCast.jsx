@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMovieCasts } from "../MovieList";
+import { fetchMovieCasts } from "../getMovieList";
 import { useParams } from "react-router-dom";
 import css from './MovieCast.module.css';
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
@@ -8,18 +8,18 @@ export default function MovieCast() {
   const {movieId} = useParams();
   const [casts, setCasts] = useState([]);
   const [error, setError] = useState(false);
- try {
-    useEffect(()=>{
+  useEffect(()=>{
+      try {
       async function getReviews() {
         setError(false);
         const data = await fetchMovieCasts(movieId);
         setCasts(data.cast);        
       }
       getReviews();
-    },[movieId]);
-  } catch  {
-    setError(true);
-  }  
+    } catch  {
+      setError(true);
+    }  
+  },[movieId]);
   return (
     <div>
           <ul className={css.castList}>

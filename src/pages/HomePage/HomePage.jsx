@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchMovies } from "../../components/MovieList";
-import { data } from "react-router-dom";
-import MoviesList from "../../components/MoviesList/MoviesList";
+import { fetchTrandingMovies } from "../../components/TrendingMovies";
+import MovieList from '../../components/MovieList/MovieList'
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 const url = 'https://api.themoviedb.org/3/movie/popular';
@@ -15,15 +14,15 @@ export default function HomePage() {
         try {
           setIsLoading(true)
           setError(false)
-          const data = await fetchMovies(url,'',1);
-          setMovies(data.results)
+          const data = await fetchTrandingMovies(url, 1);
+          setMovies(data.results);
         } catch  {
           setError(true)
         } finally {
           setIsLoading(false)
         }
       }
-      getMovies(data)
+      getMovies()
     },[])
 
 
@@ -32,7 +31,7 @@ export default function HomePage() {
       <h1>Trending today</h1>
       {isLoading && <Loader/>}
       {error && <ErrorMessage/>}
-      {movies.length>0 && <MoviesList movies={movies}/>}
+      {movies.length>0 && <MovieList movies={movies}/>}
     </div>
   )
 }

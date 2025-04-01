@@ -1,12 +1,20 @@
 import css from './MovieInfo.module.css';
 import AddBtn from '../Button/Button';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Suspense, useRef } from 'react';
 
 export default function MovieInfo({movie}) {
+
+    const location = useLocation();
+    const backLinkRef = useRef(location.state ?? "/");
+    
     return (
     <div>
-       <Link to='/'><AddBtn className={css.goBackBtn}context={"Go back"}/></Link>
+       <Link to={backLinkRef.current}>
+            <AddBtn className={css.goBackBtn} 
+                    context={"Go back"}
+                    />
+       </Link>
         <div>
             <div className={css.poster}>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt='poster' />

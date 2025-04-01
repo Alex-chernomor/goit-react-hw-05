@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { fetchMovieById } from "../../components/MovieList";
+import { fetchMovieById } from "../../components/getMovieList";
 import MovieInfo from "../../components/MovieInfo/MovieInfo";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-
 
 export default function MovieDetailsPage() {
   const {movieId} = useParams();
@@ -32,7 +31,7 @@ export default function MovieDetailsPage() {
     <div>
       {isLoading && <Loader/>}
       {error && <ErrorMessage/>}
-      {movie && <MovieInfo movie = {movie}/> }
+      {movie && <MovieInfo movie = {movie} /> }
     </div>
   )
 }

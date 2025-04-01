@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMovieReviews } from "../MovieList";
+import { fetchMovieReviews } from "../getMovieList";
 import { useParams } from "react-router";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
@@ -7,19 +7,19 @@ export default function MovieReviews() {
   const {movieId} = useParams();
   const [reviews, setReveiws] = useState([]);
   const [error, setError] = useState(false)
+  useEffect(()=>{
   try {
-    useEffect(()=>{
       async function getReviews() {
         setError(false);
         const data = await fetchMovieReviews(movieId);
         setReveiws(data.results);
       }
       getReviews();
-    },[movieId]);
-  } catch  {
-    setError(true);
-  }  
-  
+    } catch {
+      setError(true);
+    }  
+  },[movieId]);
+    
   return (
     <div>
         <ul>
