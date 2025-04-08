@@ -2,7 +2,6 @@ import css from './MovieInfo.module.css';
 import AddBtn from '../Button/Button';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Suspense, useRef } from 'react';
-
 export default function MovieInfo({movie}) {
 
     const location = useLocation();

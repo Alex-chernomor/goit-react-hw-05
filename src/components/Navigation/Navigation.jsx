@@ -15,7 +15,7 @@ export default function Header() {
               <NavLink to='/' className={getLinkStyle}>Home</NavLink>
             </li>
             <li>
-              <NavLink to='/Movies' className={getLinkStyle}>Movies</NavLink>
+              <NavLink to='/movies' className={getLinkStyle}>Movies</NavLink>
             </li>
           </ul>
         </nav>

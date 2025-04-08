@@ -54,6 +54,7 @@ export default function MoviesPage() {
         setIsLoading(true);
         const data = await fetchMovies(url, searchMovie, page); 
         setMaxPage(data.total_pages);
+        
         if (data.total_results === 0) {
           setNoMovie(true);
         }   
@@ -72,6 +73,10 @@ export default function MoviesPage() {
 
   const handleClickLoadMoreBtn = () => {
     setPage(page + 1);
+    scrollBy({
+      top:-4000,
+      behavior: "smooth",
+    })
   }
   
   const handleSearch = async ()=>{    

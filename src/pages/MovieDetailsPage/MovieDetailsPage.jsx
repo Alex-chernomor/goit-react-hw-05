@@ -5,6 +5,8 @@ import MovieInfo from "../../components/MovieInfo/MovieInfo";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
+
+
 export default function MovieDetailsPage() {
   const {movieId} = useParams();
   const [movie, setMovie] = useState(null);
